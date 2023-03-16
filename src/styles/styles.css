@@ -1,0 +1,128 @@
+header {
+  display: flex;
+  justify-content: center;
+}
+
+.gold {
+  width:4em;
+  background-color:gold;
+}
+
+.silver {
+  width:4em;
+  background-color:silver;
+}
+
+.bronze {
+  width:4em;
+  background-color:#c96;
+}
+
+.green_background {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  width:4em;
+}
+
+.make_caption {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 30px;
+}
+
+body {
+  /* position: relative; */
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+body table {
+  border-collapse: separate;
+  border-spacing: 1px;
+  border: 2px solid red;
+  border-radius: 10px;
+}
+
+body table td {
+  border: 2px solid red;
+}
+
+body table th {
+  border: 2px solid red;
+}
+
+
+/* overlay with the background image */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*  make sure the overlay stays behind the content. */
+  z-index: -1;
+  background-image: url("../Images/flowers.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(5px); /* adjust the value as needed */
+  -webkit-backdrop-filter: blur(5px); /* for Safari */
+}
+
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+tr td:first-child {
+  background-color: #050505;
+  font-weight: bold;
+  color: white;
+  font-size: 15px;
+}
+
+th:hover, td:hover {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-top: 3px solid red;
+  border-bottom: 3px solid red;
+  background-color: grey;
+}
+
+.change_to_grey:hover {
+  background-color: grey;
+}
+
+tr.change_to_grey:hover .highlight {
+  background-color: grey;
+  color: black;
+}
+
+tbody tr th {
+  color: white;
+  text-align:left;
+}
+
+
+
+tr td {
+  /* background-color: white; */
+  font-weight: lighter;
+  font-size: 11px; /* or any other font size you want */
+}
+
+td:not(:first-child) {
+  width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5px;
+}
+
