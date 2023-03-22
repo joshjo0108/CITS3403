@@ -1,4 +1,5 @@
 const word = "apple";
+// Get all the letter boxes using .querySelectorAll()
 const letterBoxes = document.querySelectorAll(".letter-box");
 const checkButton = document.getElementById("check-button");
 const resetButton = document.getElementById("reset-button");
