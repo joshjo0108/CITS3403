@@ -6,16 +6,20 @@ const resetButton = document.getElementById("reset-button");
 
 checkButton.addEventListener("click", function() {
   let guess = "";
-  let isGuessValid = true; // flag to track whether the guess is valid
-  letterBoxes.forEach(function(letterBox) {
+  let isGuessValid = true;
+  let firstLetterCorrect = false; // track whether the first letter is correct
+  letterBoxes.forEach(function(letterBox, index) {
     const letter = letterBox.querySelector("input").value;
     guess += letter;
-    if (letter === "") { // check if the input is empty
+    if (letter === "") {
       isGuessValid = false;
       letterBox.style.backgroundColor = "red";
     } else if (word.includes(letter)) {
       if (word.indexOf(letter) === guess.indexOf(letter)) {
         letterBox.style.backgroundColor = "green";
+        if (index === 0) {
+          firstLetterCorrect = true;
+        }
       } else {
         letterBox.style.backgroundColor = "yellow";
       }
@@ -26,8 +30,13 @@ checkButton.addEventListener("click", function() {
   
   if (isGuessValid && guess === word) {
     alert("You win!");
+  } else if (firstLetterCorrect) {
+    alert("The first is correct");
+  } else {
+    alert("The first is wrong");
   }
 });
+
 
 resetButton.addEventListener("click", function() {
   letterBoxes.forEach(function(letterBox) {
