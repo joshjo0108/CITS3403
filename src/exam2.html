@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To Do List</title>
+	<style>
+		body {
+			margin: 0;
+			background-color: yellow;
+		}
+		h1 {
+			margin: 20px;
+		}
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+		}
+		.input {
+			background-color: blue;
+			flex-basis: 100%;
+			margin: 10px 20px 0px 20px; /* specify margins for top, right, and left sides */
+			padding: 20px;
+			box-sizing: border-box;
+		}
+		.input input[type="text"] {
+			width: calc(70% - 60px);
+			margin-right: 10px;
+			padding: 5px;
+			box-sizing: border-box;
+			font-size: 16px;
+			/* border: none; */
+			border-radius: 5px;
+		}
+
+		.priority {
+      /* display: inline-block; */
+			width: 99%;
+			background-color: green;
+			margin: 0px 20px 20px 20px;
+			padding: 20px;
+			box-sizing: border-box;
+		}
+		.priority h2 {
+			color: black;
+			font-size: 24px;
+		}
+		.priority ul {
+			list-style-type: disc;
+			margin: 10px;
+			padding: 0 0 0 20px;
+			font-size: 20px;
+		}
+		.priority li {
+			color: black;
+			padding: 5px;
+			cursor: pointer;
+      font-size: 20px;
+		}
+		.priority li:hover {
+			color: white;
+			background-color: black;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="input">
+			<input type="text" placeholder="Enter priority here" id="new-priority">
+			<button id="add-priority">Add Priority</button>
+		</div>
+		<div class="priority">
+			<h2>Priority</h2>
+      <ol id="priorityList">
+        <li>Priority 1</li>
+        <li>Priority 2</li>
+        <li>Priority 3</li>
+        <li>Priority 4</li>
+      </ol>
+		</div>
+	</div>
+</body>
+
+<script>
+const newTaskInput = document.getElementById('new-priority');
+const addTaskButton = document.getElementById('add-priority');
+const todoList = document.querySelector('.priority ol');
+
+// Add a task to the To Do list
+function addTask(event) {
+  event.preventDefault(); // prevent the form from submitting and refreshing the page
+  const newTaskText = newTaskInput.value;
+  if (newTaskText.trim() !== '') { // check if the input is not empty or only contains whitespace
+    const newTask = document.createElement('li');
+    newTask.innerText = newTaskText;
+		// add to the list
+    todoList.appendChild(newTask);
+    // Reset the newTaskInput Bar
+    newTaskInput.value = '';
+  }
+}
+
+
+// Listen for the button click event or the Enter key press event in the input field
+addTaskButton.addEventListener('click', addTask);
+newTaskInput.addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+    addTask(event);
+  }
+});
+
+// Update the list order when Clicked
+const priorityList = document.getElementById('priorityList');
+  priorityList.addEventListener('click', (event) => {
+		// target : is the list that I clicked
+    const listItem = event.target;
+    if (listItem.tagName === 'LI') {
+			// make the first childe of ol
+      priorityList.insertBefore(listItem, priorityList.firstChild);
+    }
+  });
+
+
+</script>
+</html>
