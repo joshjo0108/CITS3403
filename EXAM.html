@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Teacher</title>
+    <style>
+      body {
+        background-color: yellow;
+      }
+
+      h1 {
+        text-align: center;
+        color: blue;
+      }
+
+      .lecturer {
+        display: block;
+        margin-bottom: 20px;
+        overflow: hidden;
+        border: 1px solid black; /* add black border */
+      }
+
+      .name {
+        float: left;
+        width: 50%;
+        background-color: #ccc;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+        margin:20px
+      }
+      .image {
+        float: right;
+        width: 200px;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+        background-color: orange;
+        margin: 10px;
+      }
+      .outer {
+        float: right;
+        width: 200px;
+        height: 200px;
+        margin: 10px;
+        border: 1px solid black;
+        background-color: grey;
+      }
+      #jin {
+        background-image: url('https://research-repository.uwa.edu.au/files-asset/34955114/jin_full_square.jpg');
+      }
+      #wei {
+        background-image: url('https://research-repository.uwa.edu.au/files-asset/32523354/wei.png');
+      }
+      #mubashar {
+        background-image: url('https://research-repository.uwa.edu.au/files-asset/32716004/Mubashar.jpg');
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Who is my teacher</h1>
+    <div class="lecturer">
+      <div class="name">Dr Jin Hong</div>
+      <div class="outer">
+        <div class="image" id="jin"></div>
+      </div>
+    </div>
+    <div class="lecturer">
+      <div class="name">Dr Wei Liu</div>
+      <div class="outer">
+        <div class="image" id="wei"></div>
+      </div>
+    </div>
+    <div class="lecturer">
+      <div class="name">Dr Mubashar Hassan</div>
+      <div class="outer">
+        <div class="image" id="mubashar"></div>
+      </div>
+    </div>
+  </body>
+</html>

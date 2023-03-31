@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Teacher</title>
+  </head>
+  <body>
+    <h1>Who is my teacher</h1>
+    <div class="lecturer">
+      <div class="name">Dr Jin Hong</div>
+      <div class="image" id="jin"></div>
+    </div>
+    <div class="lecturer">
+      <div class="name">Dr Wei Liu</div>
+      <div class="image" id="wei"></div>
+    </div>
+    <div class="lecturer">
+      <div class="name">Dr Mubashar Hassan</div>
+      <div class="image" id="mubashar"></div>
+    </div>
+    <script>
+      let names = ['Dr Jin Hong', 'Dr Wei Liu', 'Dr Mubashar Hassan'];
+      let faces = [
+        {name: 'Dr Mubashar Hassan', image: 'https://research-repository.uwa.edu.au/files-asset/32716004/Mubashar.jpg'},
+        {name: 'Dr Wei Liu', image: 'https://research-repository.uwa.edu.au/files-asset/32523354/wei.png'},
+        {name: 'Dr Jin Hong', image: 'https://research-repository.uwa.edu.au/files-asset/34955114/jin_full_square.jpg'}
+      ];
+
+      // loop through the faces array
+      for (let i = 0; i < faces.length; i++) {
+        // find the image div with the corresponding lecturer name
+        let imageDiv = document.getElementById(names.indexOf(faces[i].name) >= 0 ? faces[i].name.split(" ").join("").toLowerCase() : "");
+        
+        // set the background image of the image div
+        imageDiv.style.backgroundImage = "url('" + faces[i].image + "')";
+      }
+    </script>
+  </body>
+</html>
